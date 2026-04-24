@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>问卷填写入口</title>
+    <script>
+        function isWeChat() {
+            return /micromessenger/i.test(navigator.userAgent);
+        }
+
+        window.onload = function() {
+            var surveyUrl = "https://v.wjx.cn/vm/O0IZQpq.aspx#"; // ←替换成你的问卷链接
+
+            if (isWeChat()) {
+                document.getElementById("wechat-tip").style.display = "block";
+            } else {
+                window.location.href = surveyUrl;
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+            text-align: center;
+            background: #ffffff;
+        }
+        .tip {
+            display: none;
+            padding-top: 40%;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .highlight {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wechat-tip" class="tip">
+        请点击右上角 <span class="highlight">···</span><br><br>
+        选择 <span class="highlight">“在浏览器中打开”</span><br><br>
+        再填写问卷
+    </div>
+</body>
+</html>
